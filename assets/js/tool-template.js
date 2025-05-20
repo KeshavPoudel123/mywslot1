@@ -797,240 +797,181 @@ function showIcons() {
  * Initialize search functionality
  */
 function initSearchFunctionality() {
-    const desktopSearchInput = document.getElementById('desktop-search-input');
-    const desktopSearchDropdown = document.getElementById('desktop-search-dropdown');
-    const mobileSearchInput = document.getElementById('mobile-search-input');
-    const mobileSearchDropdown = document.getElementById('mobile-search-dropdown');
-    const searchForms = document.querySelectorAll('.search-form');
+    // Use the centralized search functionality from search.js
+    if (typeof initSearch === 'function') {
+        // If search.js is loaded, use its initSearch function
+        initSearch();
+    } else {
+        // Fallback implementation if search.js is not loaded
+        const desktopSearchInput = document.getElementById('desktop-search-input');
+        const desktopSearchDropdown = document.getElementById('desktop-search-dropdown');
+        const mobileSearchInput = document.getElementById('mobile-search-input');
+        const mobileSearchDropdown = document.getElementById('mobile-search-dropdown');
+        const searchForms = document.querySelectorAll('.search-form');
 
-    // Initialize desktop search
-    if (desktopSearchInput && desktopSearchDropdown) {
-        // Show dropdown on focus
-        desktopSearchInput.addEventListener('focus', function() {
-            desktopSearchDropdown.classList.add('show');
+        // Load tools data
+        if (window.toolsDataModule) {
+            window.toolsDataModule.getAllTools()
+                .then(tools => {
+                    // Initialize search for desktop
+                    if (desktopSearchInput && desktopSearchDropdown) {
+                        initSearchInput(tools, desktopSearchInput, desktopSearchDropdown);
+                    }
 
-            // Load default content if empty
-            if (this.value.trim() === '') {
-                loadDefaultSearchContent(desktopSearchDropdown);
-            }
-        });
+                    // Initialize search for mobile
+                    if (mobileSearchInput && mobileSearchDropdown) {
+                        initSearchInput(tools, mobileSearchInput, mobileSearchDropdown);
 
-        // Hide dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!desktopSearchInput.contains(event.target) && !desktopSearchDropdown.contains(event.target)) {
-                desktopSearchDropdown.classList.remove('show');
-            }
-        });
+                        // Handle clicking outside mobile search to close it
+                        document.addEventListener('click', function(event) {
+                            const searchToggle = document.getElementById('search-toggle');
+                            const mobileSearch = document.querySelector('.mobile-search');
 
-        // Handle search input
-        desktopSearchInput.addEventListener('input', debounce(function() {
-            const searchTerm = this.value.trim().toLowerCase();
+                            if (mobileSearch && mobileSearch.classList.contains('show') &&
+                                !mobileSearch.contains(event.target) &&
+                                (!searchToggle || !searchToggle.contains(event.target))) {
+                                mobileSearch.classList.remove('show');
+                                // Show both icons when search is closed
+                                showIcons();
+                            }
+                        });
+                    }
 
-            // Show dropdown when typing
-            desktopSearchDropdown.classList.add('show');
+                    // Handle search form submission
+                    if (searchForms.length) {
+                        searchForms.forEach(form => {
+                            form.addEventListener('submit', function(event) {
+                                event.preventDefault();
+                                const searchInput = form.querySelector('.search-box');
+                                const searchTerm = searchInput.value.trim();
 
-            if (searchTerm === '') {
-                // Show default content when search is cleared
-                loadDefaultSearchContent(desktopSearchDropdown);
-                return;
-            }
+                                if (searchTerm) {
+                                    // Fix the URL path to work from any subdirectory
+                                    const searchUrl = window.location.pathname.includes('/') ?
+                                        `../all-tools.html?search=${encodeURIComponent(searchTerm)}` :
+                                        `all-tools.html?search=${encodeURIComponent(searchTerm)}`;
 
-            // If tools-data.js is available, use it to filter results
-            if (window.toolsDataModule) {
-                window.toolsDataModule.searchTools(searchTerm)
-                    .then(results => {
-                        updateSearchResults(results, desktopSearchDropdown, searchTerm);
-                    })
-                    .catch(error => {
-                        console.error('Error searching tools:', error);
-                        desktopSearchDropdown.innerHTML = '<div class="search-error">Error searching tools. Please try again.</div>';
-                    });
-            }
-        }, 300));
-    }
-
-    // Initialize mobile search
-    if (mobileSearchInput && mobileSearchDropdown) {
-        // Show dropdown on focus
-        mobileSearchInput.addEventListener('focus', function() {
-            mobileSearchDropdown.classList.add('show');
-
-            // Load default content if empty
-            if (this.value.trim() === '') {
-                loadDefaultSearchContent(mobileSearchDropdown);
-            }
-        });
-
-        // Handle search input
-        mobileSearchInput.addEventListener('input', debounce(function() {
-            const searchTerm = this.value.trim().toLowerCase();
-
-            // Show dropdown when typing
-            mobileSearchDropdown.classList.add('show');
-
-            if (searchTerm === '') {
-                // Show default content when search is cleared
-                loadDefaultSearchContent(mobileSearchDropdown);
-                return;
-            }
-
-            // If tools-data.js is available, use it to filter results
-            if (window.toolsDataModule) {
-                window.toolsDataModule.searchTools(searchTerm)
-                    .then(results => {
-                        updateSearchResults(results, mobileSearchDropdown, searchTerm);
-                    })
-                    .catch(error => {
-                        console.error('Error searching tools:', error);
-                        mobileSearchDropdown.innerHTML = '<div class="search-error">Error searching tools. Please try again.</div>';
-                    });
-            }
-        }, 300));
-
-        // Handle clicking outside mobile search to close it
-        document.addEventListener('click', function(event) {
-            const searchToggle = document.getElementById('search-toggle');
-            const mobileSearch = document.querySelector('.mobile-search');
-
-            if (mobileSearch && mobileSearch.classList.contains('show') &&
-                !mobileSearch.contains(event.target) &&
-                (!searchToggle || !searchToggle.contains(event.target))) {
-                mobileSearch.classList.remove('show');
-                // Show both icons when search is closed
-                showIcons();
-            }
-        });
-    }
-
-    // Handle search form submission for both desktop and mobile
-    if (searchForms.length) {
-        searchForms.forEach(form => {
-            form.addEventListener('submit', function(event) {
-                event.preventDefault();
-                const searchInput = form.querySelector('.search-box');
-                const searchTerm = searchInput.value.trim();
-
-                if (searchTerm) {
-                    // Fix the URL path to work from any subdirectory
-                    const searchUrl = window.location.pathname.includes('/') ?
-                        `../all-tools.html?search=${encodeURIComponent(searchTerm)}` :
-                        `all-tools.html?search=${encodeURIComponent(searchTerm)}`;
-
-                    // Redirect to all-tools.html with search parameter
-                    window.location.href = searchUrl;
-                }
-            });
-        });
-    }
-
-    // Load default search content on page load
-    if (desktopSearchDropdown) {
-        loadDefaultSearchContent(desktopSearchDropdown);
-    }
-    if (mobileSearchDropdown) {
-        loadDefaultSearchContent(mobileSearchDropdown);
+                                    // Redirect to all-tools.html with search parameter
+                                    window.location.href = searchUrl;
+                                }
+                            });
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading tools data for search:', error);
+                });
+        }
     }
 }
 
 /**
- * Load default search content (popular tools)
- * @param {HTMLElement} dropdown - The dropdown to populate
+ * Initialize search input functionality
+ * @param {Array} tools - The tools data
+ * @param {HTMLElement} searchInput - The search input element
+ * @param {HTMLElement} searchDropdown - The search dropdown element
  */
-function loadDefaultSearchContent(dropdown) {
-    // Show loading indicator
-    dropdown.innerHTML = '<div class="search-loading"><div class="loading-spinner">Loading search results...</div></div>';
+function initSearchInput(tools, searchInput, searchDropdown) {
+    // Show dropdown on focus
+    searchInput.addEventListener('focus', function() {
+        searchDropdown.classList.add('show');
 
-    // Get popular tools
-    if (window.toolsDataModule) {
-        window.toolsDataModule.getPopularTools(6)
-            .then(popularTools => {
-                // Create HTML for recommended tools
-                let html = `
-                    <div class="search-category">
-                        <h5>Recommended Tools</h5>
-                        <div class="search-results">
-                `;
+        // Load default content if empty
+        if (this.value.trim() === '') {
+            showDefaultRecommendations(searchDropdown, tools);
+        }
+    });
 
-                // Add popular tools
-                popularTools.forEach(tool => {
-                    // Fix the URL path to work from any subdirectory
-                    const toolUrl = tool.url.startsWith('http') ?
-                        tool.url :
-                        (window.location.pathname.includes('/') ? '../' + tool.url : tool.url);
+    // Filter results as user types
+    searchInput.addEventListener('input', debounce(function() {
+        const searchTerm = this.value.trim().toLowerCase();
 
-                    // Fix the image path to work from any subdirectory
-                    const imagePath = window.location.pathname.includes('/') ?
-                        `../assets/images/tool-icons/${tool.icon}.svg` :
-                        `assets/images/tool-icons/${tool.icon}.svg`;
+        // Show dropdown when typing
+        searchDropdown.classList.add('show');
 
-                    html += `
-                        <a href="${toolUrl}" class="search-result-item">
-                            <div class="search-result-icon">
-                                <img src="${imagePath}" alt="${tool.name} Icon" width="24" height="24">
-                            </div>
-                            <div class="search-result-info">
-                                <div class="search-result-title">
-                                    ${tool.name}
-                                    <span class="recommended-label">Popular</span>
-                                    ${tool.isNew ? '<span class="new-label">New</span>' : ''}
-                                </div>
-                                <div class="search-result-description">${tool.shortDescription}</div>
-                            </div>
-                        </a>
-                    `;
-                });
+        if (searchTerm === '') {
+            // Show default content when search is cleared
+            showDefaultRecommendations(searchDropdown, tools);
+            return;
+        }
 
-                html += `
-                        </div>
-                    </div>
-                `;
+        // Filter tools based on search term (exclude category from search)
+        const filteredTools = tools.filter(tool => {
+            return tool.name.toLowerCase().includes(searchTerm) ||
+                   tool.shortDescription.toLowerCase().includes(searchTerm);
+        });
 
-                // Add categories section
-                html += `
-                    <div class="search-category">
-                        <h5>Categories</h5>
-                        <div class="search-results">
-                `;
+        updateSearchResults(filteredTools, searchDropdown, searchTerm);
+    }, 300));
 
-                // Get categories
-                window.toolsDataModule.getAllCategories()
-                    .then(categories => {
-                        // Add category links
-                        categories.forEach(category => {
-                            // Fix the URL path to work from any subdirectory
-                            const categoryUrl = window.location.pathname.includes('/') ?
-                                `../all-tools.html?category=${encodeURIComponent(category)}` :
-                                `all-tools.html?category=${encodeURIComponent(category)}`;
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!searchInput.contains(event.target) && !searchDropdown.contains(event.target)) {
+            searchDropdown.classList.remove('show');
+        }
+    });
 
-                            html += `
-                                <a href="${categoryUrl}" class="search-result-item">
-                                    <div class="search-result-info">
-                                        <div class="search-result-title">${category}</div>
-                                    </div>
-                                </a>
-                            `;
-                        });
+    // Load default search content on page load
+    showDefaultRecommendations(searchDropdown, tools);
+}
 
-                        html += `
-                                </div>
-                            </div>
-                        `;
+/**
+ * Show default recommendations in the search dropdown
+ * @param {HTMLElement} dropdownElement - The dropdown element to update
+ * @param {Array} toolsData - The tools data
+ */
+function showDefaultRecommendations(dropdownElement, toolsData) {
+    // Get popular tools (limit to 6)
+    const popularTools = toolsData.filter(tool => tool.isPopular).slice(0, 6);
 
-                        // Update dropdown content
-                        dropdown.innerHTML = html;
-                    })
-                    .catch(error => {
-                        console.error('Error getting categories:', error);
-                        dropdown.innerHTML = '<div class="search-error">Error loading search content. Please try again.</div>';
-                    });
-            })
-            .catch(error => {
-                console.error('Error getting popular tools:', error);
-                dropdown.innerHTML = '<div class="search-error">Error loading search content. Please try again.</div>';
-            });
-    } else {
-        dropdown.innerHTML = '<div class="search-error">Search functionality is not available.</div>';
+    if (popularTools.length === 0) {
+        dropdownElement.innerHTML = '<div class="no-results">No recommended tools found</div>';
+        return;
     }
+
+    // Build HTML for recommended tools
+    let html = `
+        <div class="search-category">
+            <h5>Recommended Tools</h5>
+            <div class="search-results">
+    `;
+
+    // Add each popular tool
+    popularTools.forEach(tool => {
+        // Fix the URL path to work from any subdirectory
+        const toolUrl = tool.url.startsWith('http') ?
+            tool.url :
+            (window.location.pathname.includes('/') ? '../' + tool.url : tool.url);
+
+        // Fix the image path to work from any subdirectory
+        const imagePath = window.location.pathname.includes('/') ?
+            `../assets/images/tool-icons/${tool.icon}.svg` :
+            `assets/images/tool-icons/${tool.icon}.svg`;
+
+        html += `
+            <a href="${toolUrl}" class="search-result-item">
+                <div class="search-result-icon">
+                    <img src="${imagePath}" alt="${tool.name} Icon" width="24" height="24" onerror="this.src='${window.location.pathname.includes('/') ? '../' : ''}assets/images/tool-icons/photo_filter.svg'">
+                </div>
+                <div class="search-result-info">
+                    <div class="search-result-title">
+                        ${tool.name}
+                        ${tool.isPopular ? '<span class="recommended-label">Popular</span>' : ''}
+                        ${tool.isNew ? '<span class="new-label">New</span>' : ''}
+                    </div>
+                    <div class="search-result-description">${tool.shortDescription}</div>
+                </div>
+            </a>
+        `;
+    });
+
+    html += `
+            </div>
+        </div>
+    `;
+
+    // Update dropdown content
+    dropdownElement.innerHTML = html;
 }
 
 /**
@@ -1048,78 +989,64 @@ function updateSearchResults(results, dropdown, searchTerm) {
         return;
     }
 
-    // Group results by category
-    const categories = {};
+    // Build HTML for search results
+    let resultsHTML = `
+        <div class="search-category">
+            <h5>Search Results</h5>
+            <div class="search-results">
+    `;
+
+    // Add each filtered tool
     results.forEach(tool => {
-        if (!categories[tool.category]) {
-            categories[tool.category] = [];
+        // Fix the URL path to work from any subdirectory
+        const toolUrl = tool.url.startsWith('http') ?
+            tool.url :
+            (window.location.pathname.includes('/') ? '../' + tool.url : tool.url);
+
+        // Fix the image path to work from any subdirectory
+        const imagePath = window.location.pathname.includes('/') ?
+            `../assets/images/tool-icons/${tool.icon}.svg` :
+            `assets/images/tool-icons/${tool.icon}.svg`;
+
+        // Highlight the search term in the tool name and description
+        let highlightedName = tool.name;
+        let highlightedDescription = tool.shortDescription;
+
+        if (searchTerm && searchTerm.length > 0) {
+            // Create a regex that matches the search term (case insensitive)
+            const regex = new RegExp(`(${escapeRegExp(searchTerm)})`, 'gi');
+
+            // Highlight matches in the name
+            highlightedName = tool.name.replace(regex, '<span class="highlight">$1</span>');
+
+            // Highlight matches in the description
+            highlightedDescription = tool.shortDescription.replace(regex, '<span class="highlight">$1</span>');
         }
-        categories[tool.category].push(tool);
-    });
 
-    // Create HTML for results
-    Object.keys(categories).forEach(category => {
-        const categoryDiv = document.createElement('div');
-        categoryDiv.className = 'search-category';
-
-        const heading = document.createElement('h5');
-        heading.textContent = category;
-        categoryDiv.appendChild(heading);
-
-        const resultsDiv = document.createElement('div');
-        resultsDiv.className = 'search-results';
-
-        categories[category].forEach(tool => {
-            const resultItem = document.createElement('a');
-
-            // Fix the URL path to work from any subdirectory
-            const toolUrl = tool.url.startsWith('http') ?
-                tool.url :
-                (window.location.pathname.includes('/') ? '../' + tool.url : tool.url);
-
-            resultItem.href = toolUrl;
-            resultItem.className = 'search-result-item';
-
-            // Highlight the search term in the tool name and description
-            let highlightedName = tool.name;
-            let highlightedDescription = tool.shortDescription;
-
-            if (searchTerm && searchTerm.length > 0) {
-                // Create a regex that matches the search term (case insensitive)
-                const regex = new RegExp(`(${escapeRegExp(searchTerm)})`, 'gi');
-
-                // Highlight matches in the name
-                highlightedName = tool.name.replace(regex, '<span class="highlight">$1</span>');
-
-                // Highlight matches in the description
-                highlightedDescription = tool.shortDescription.replace(regex, '<span class="highlight">$1</span>');
-            }
-
-            // Fix the image path to work from any subdirectory
-            const imagePath = window.location.pathname.includes('/') ?
-                `../assets/images/tool-icons/${tool.icon}.svg` :
-                `assets/images/tool-icons/${tool.icon}.svg`;
-
-            resultItem.innerHTML = `
+        resultsHTML += `
+            <a href="${toolUrl}" class="search-result-item">
                 <div class="search-result-icon">
-                    <img src="${imagePath}" alt="${tool.name} Icon" width="24" height="24">
+                    <img src="${imagePath}" alt="${tool.name} Icon" width="24" height="24" onerror="this.src='${window.location.pathname.includes('/') ? '../' : ''}assets/images/tool-icons/photo_filter.svg'">
                 </div>
                 <div class="search-result-info">
                     <div class="search-result-title">
                         ${highlightedName}
-                        ${tool.isNew ? '<span class="new-label">New</span>' : ''}
                         ${tool.isPopular ? '<span class="recommended-label">Popular</span>' : ''}
+                        ${tool.isNew ? '<span class="new-label">New</span>' : ''}
                     </div>
                     <div class="search-result-description">${highlightedDescription}</div>
                 </div>
-            `;
-
-            resultsDiv.appendChild(resultItem);
-        });
-
-        categoryDiv.appendChild(resultsDiv);
-        dropdown.appendChild(categoryDiv);
+            </a>
+        `;
     });
+
+    resultsHTML += `
+            </div>
+        </div>
+    `;
+
+    // Update dropdown content
+    dropdown.innerHTML = resultsHTML;
 
     // Add CSS for highlighted text
     if (!document.getElementById('search-highlight-style')) {

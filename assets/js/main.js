@@ -385,58 +385,65 @@ function initMobileMenu() {
 
     // Initialize search dropdowns for all pages
     function initSearchDropdowns() {
-        // Handle desktop search in index.html
-        const desktopSearchInput = document.getElementById('desktop-search-input');
-        const desktopSearchDropdown = document.getElementById('desktop-search-dropdown');
+        // Use the centralized search functionality from search.js if available
+        if (typeof initSearch === 'function') {
+            // If search.js is loaded, use its initSearch function
+            initSearch();
+        } else {
+            // Fallback to the old implementation
+            // Handle desktop search in index.html
+            const desktopSearchInput = document.getElementById('desktop-search-input');
+            const desktopSearchDropdown = document.getElementById('desktop-search-dropdown');
 
-        // Handle desktop search in all-tools.html
-        const desktopSearchInputAll = document.getElementById('desktop-search-input-all');
-        const desktopSearchDropdownAll = document.getElementById('desktop-search-dropdown-all');
+            // Handle desktop search in all-tools.html
+            const desktopSearchInputAll = document.getElementById('desktop-search-input-all');
+            const desktopSearchDropdownAll = document.getElementById('desktop-search-dropdown-all');
 
-        // Handle desktop search in popular-tools.html
-        const desktopSearchInputPopular = document.getElementById('desktop-search-input-popular');
-        const desktopSearchDropdownPopular = document.getElementById('desktop-search-dropdown-popular');
+            // Handle desktop search in popular-tools.html
+            const desktopSearchInputPopular = document.getElementById('desktop-search-input-popular');
+            const desktopSearchDropdownPopular = document.getElementById('desktop-search-dropdown-popular');
 
-        // Handle mobile search in index.html
-        const mobileSearchInput = document.getElementById('mobile-search-input');
-        const mobileSearchDropdown = document.getElementById('mobile-search-dropdown');
+            // Handle mobile search in index.html
+            const mobileSearchInput = document.getElementById('mobile-search-input');
+            const mobileSearchDropdown = document.getElementById('mobile-search-dropdown');
 
-        // Handle mobile search in all-tools.html
-        const mobileSearchInputAll = document.getElementById('mobile-search-input-all');
-        const mobileSearchDropdownAll = document.getElementById('mobile-search-dropdown-all');
+            // Handle mobile search in all-tools.html
+            const mobileSearchInputAll = document.getElementById('mobile-search-input-all');
+            const mobileSearchDropdownAll = document.getElementById('mobile-search-dropdown-all');
 
-        // Handle mobile search in popular-tools.html
-        const mobileSearchInputPopular = document.getElementById('mobile-search-input-popular');
-        const mobileSearchDropdownPopular = document.getElementById('mobile-search-dropdown-popular');
+            // Handle mobile search in popular-tools.html
+            const mobileSearchInputPopular = document.getElementById('mobile-search-input-popular');
+            const mobileSearchDropdownPopular = document.getElementById('mobile-search-dropdown-popular');
 
-        // Setup desktop search in index.html
-        if (desktopSearchInput && desktopSearchDropdown) {
-            setupSearchDropdown(desktopSearchInput, desktopSearchDropdown);
-        }
+            // Setup desktop search in index.html
+            if (desktopSearchInput && desktopSearchDropdown) {
+                setupSearchDropdown(desktopSearchInput, desktopSearchDropdown);
+            }
 
-        // Setup desktop search in all-tools.html
-        if (desktopSearchInputAll && desktopSearchDropdownAll) {
-            setupSearchDropdown(desktopSearchInputAll, desktopSearchDropdownAll);
-        }
+            // Setup desktop search in all-tools.html
+            if (desktopSearchInputAll && desktopSearchDropdownAll) {
+                setupSearchDropdown(desktopSearchInputAll, desktopSearchDropdownAll);
+            }
 
-        // Setup desktop search in popular-tools.html
-        if (desktopSearchInputPopular && desktopSearchDropdownPopular) {
-            setupSearchDropdown(desktopSearchInputPopular, desktopSearchDropdownPopular);
-        }
+            // Setup desktop search in popular-tools.html
+            if (desktopSearchInputPopular && desktopSearchDropdownPopular) {
+                setupSearchDropdown(desktopSearchInputPopular, desktopSearchDropdownPopular);
+            }
 
-        // Setup mobile search in index.html
-        if (mobileSearchInput && mobileSearchDropdown) {
-            setupSearchDropdown(mobileSearchInput, mobileSearchDropdown);
-        }
+            // Setup mobile search in index.html
+            if (mobileSearchInput && mobileSearchDropdown) {
+                setupSearchDropdown(mobileSearchInput, mobileSearchDropdown);
+            }
 
-        // Setup mobile search in all-tools.html
-        if (mobileSearchInputAll && mobileSearchDropdownAll) {
-            setupSearchDropdown(mobileSearchInputAll, mobileSearchDropdownAll);
-        }
+            // Setup mobile search in all-tools.html
+            if (mobileSearchInputAll && mobileSearchDropdownAll) {
+                setupSearchDropdown(mobileSearchInputAll, mobileSearchDropdownAll);
+            }
 
-        // Setup mobile search in popular-tools.html
-        if (mobileSearchInputPopular && mobileSearchDropdownPopular) {
-            setupSearchDropdown(mobileSearchInputPopular, mobileSearchDropdownPopular);
+            // Setup mobile search in popular-tools.html
+            if (mobileSearchInputPopular && mobileSearchDropdownPopular) {
+                setupSearchDropdown(mobileSearchInputPopular, mobileSearchDropdownPopular);
+            }
         }
     }
 
@@ -462,11 +469,11 @@ function initMobileMenu() {
             if (searchTerm) {
                 dropdown.style.display = 'block';
 
-                // Filter tools based on search term
+                // Filter tools based on search term (exclude category from search)
                 const matchingTools = toolsData.filter(tool =>
                     tool.name.toLowerCase().includes(searchTerm) ||
-                    tool.shortDescription.toLowerCase().includes(searchTerm) ||
-                    tool.category.toLowerCase().includes(searchTerm)
+                    tool.shortDescription.toLowerCase().includes(searchTerm)
+                    // Category removed from search criteria as requested
                 );
 
                 // Get the search results container
@@ -493,7 +500,7 @@ function initMobileMenu() {
 
                             resultItem.innerHTML = `
                                 <div class="search-result-icon">
-                                    <img src="assets/images/tool-icons/${tool.icon}.svg" alt="${tool.name} Icon" width="24" height="24">
+                                    <img src="assets/images/tool-icons/${tool.icon}.svg" alt="${tool.name} Icon" width="24" height="24" onerror="this.src='assets/images/tool-icons/photo_filter.svg'">
                                 </div>
                                 <div class="search-result-info">
                                     <div class="search-result-title">
@@ -537,7 +544,7 @@ function initMobileMenu() {
 
                             resultItem.innerHTML = `
                                 <div class="search-result-icon">
-                                    <img src="assets/images/tool-icons/${tool.icon}.svg" alt="${tool.name} Icon" width="24" height="24">
+                                    <img src="assets/images/tool-icons/${tool.icon}.svg" alt="${tool.name} Icon" width="24" height="24" onerror="this.src='assets/images/tool-icons/photo_filter.svg'">
                                 </div>
                                 <div class="search-result-info">
                                     <div class="search-result-title">
@@ -596,7 +603,7 @@ function populateLatestTools() {
                 toolItem.innerHTML = `
                     <div class="tool-header">
                         <div class="tool-icon">
-                            <img src="assets/images/tool-icons/${tool.icon}.svg" alt="${tool.name} Icon" width="32" height="32">
+                            <img src="assets/images/tool-icons/${tool.icon}.svg" alt="${tool.name} Icon" width="32" height="32" onerror="this.src='assets/images/tool-icons/photo_filter.svg'">
                         </div>
                         <div class="tool-info">
                             <h3>${tool.name}</h3>

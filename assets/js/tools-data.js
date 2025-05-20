@@ -24,18 +24,6 @@ const toolsDataHardcoded = [
       "isPopular": true,
       "icon": "find_replace"
     },
-    {
-      "id": "tab-master",
-      "name": "Tab Master",
-      "category": "Browser Extensions",
-      "shortDescription": "Organize too many tabs into a single tab in an organized fashion.",
-      "longDescription": "Organize too many tabs into a single tab in an organized fashion, improving browser performance and workflow efficiency. Features include grouping tabs by domain or custom categories, saving tab sessions for later use, reducing memory usage by suspending inactive tabs, and syncing tab groups across devices.",
-      "url": "tab-master/index.html",
-      "image": "assets/images/tool-icons/grid_view.svg",
-      "isNew": true,
-      "isPopular": false,
-      "icon": "grid_view"
-    },
 
     // JPG Tools
     {
@@ -100,7 +88,7 @@ const toolsDataHardcoded = [
       "isPopular": false,
       "icon": "photo_filter"
     },
-    
+
 
     // WebP Tools
     {
@@ -115,10 +103,10 @@ const toolsDataHardcoded = [
       "isPopular": true,
       "icon": "photo_filter"
     },
-    
+
 
     // SVG Tools
-    
+
     {
       "id": "svg-to-jpg",
       "name": "SVG to JPG Converter",
@@ -169,7 +157,7 @@ const toolsDataHardcoded = [
       "isPopular": false,
       "icon": "photo_filter"
     },
-    
+
 
     // BMP Tools
     {
@@ -310,8 +298,8 @@ function searchTools(searchTerm) {
             return tools.filter(tool =>
                 tool.name.toLowerCase().includes(term) ||
                 tool.shortDescription.toLowerCase().includes(term) ||
-                tool.longDescription.toLowerCase().includes(term) ||
-                tool.category.toLowerCase().includes(term)
+                tool.longDescription.toLowerCase().includes(term)
+                // Category removed from search criteria as requested
             );
         });
 }

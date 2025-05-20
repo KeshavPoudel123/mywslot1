@@ -500,6 +500,14 @@ ul {
     justify-content: center;
 }
 
+/* Highlighted text in search results */
+.highlight {
+    background-color: rgba(255, 213, 79, 0.4);
+    font-weight: bold;
+    border-radius: 2px;
+    padding: 0 2px;
+}
+
 .search-result-info {
     flex: 1;
 }
