@@ -1,0 +1,32 @@
+/**
+ * Simplified Header CSS
+ * Custom styles for simplified header without dropdowns and search
+ */
+
+/* Remove dropdown indicators */
+.main-nav ul li a .dropdown-icon {
+    display: none !important;
+}
+
+/* Hide dropdown menus */
+.main-nav ul li .dropdown-menu {
+    display: none !important;
+}
+
+/* Adjust spacing for simplified navigation */
+.main-nav ul li {
+    margin-right: 20px;
+}
+
+.main-nav ul li:last-child {
+    margin-right: 0;
+}
+
+/* Ensure mobile menu works correctly with simplified navigation */
+@media (max-width: 767px) {
+    .main-nav.active ul.show li a {
+        padding: 15px 20px;
+        display: block;
+        width: 100%;
+    }
+}

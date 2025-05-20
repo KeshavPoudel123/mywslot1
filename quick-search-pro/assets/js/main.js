@@ -232,7 +232,7 @@ function initializeExtensionContent() {
                         <div class="faq-answer">
                             <p>No, QuickSearchPro does not collect, store, or transmit any user data outside of your browser. All configuration data is stored locally in your browser's storage and is never sent to external servers.</p>
                             <p>When you use QuickSearchPro to search with a particular provider, your search query will be sent to that provider's website (e.g., Google, Bing, etc.). This is necessary for the search functionality to work. Please refer to each search provider's privacy policy for information on how they handle your search data.</p>
-                            <p>For more details, please see our <a href="privacy-policy/index.html">Privacy Policy</a>.</p>
+                            <p>For more details, please see our <a href="privacy-policy">Privacy Policy</a>.</p>
                         </div>
                     </div>
 
@@ -260,48 +260,6 @@ function initializeExtensionContent() {
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="section">
-            <div class="container">
-                <h2 class="section-title">What Users Are Saying</h2>
-                <p class="section-subtitle">Don't just take our word for it. Here's what our users have to say about QuickSearchPro.</p>
-
-                <div class="testimonials-container">
-                    <div class="testimonial-card animate-on-scroll">
-                        <p class="testimonial-text">"QuickSearchPro has completely changed how I search the web. Being able to instantly search selected text across multiple engines saves me so much time every day."</p>
-                        <div class="testimonial-author">
-                            <img src="images/testimonials/user1.jpg" alt="Sarah J." class="testimonial-avatar">
-                            <div>
-                                <p class="testimonial-name">Sarah J.</p>
-                                <p class="testimonial-role">Content Researcher</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card animate-on-scroll">
-                        <p class="testimonial-text">"As a developer, I'm constantly looking up documentation and code snippets. QuickSearchPro lets me search Stack Overflow, GitHub, and documentation sites with just a right-click. Huge time-saver!"</p>
-                        <div class="testimonial-author">
-                            <img src="images/testimonials/user2.jpg" alt="Michael T." class="testimonial-avatar">
-                            <div>
-                                <p class="testimonial-name">Michael T.</p>
-                                <p class="testimonial-role">Software Engineer</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card animate-on-scroll">
-                        <p class="testimonial-text">"The ability to customize search providers and organize them into categories is fantastic. I've set up specialized searches for my academic research and it's made finding relevant papers so much easier."</p>
-                        <div class="testimonial-author">
-                            <img src="images/testimonials/user3.jpg" alt="Emily R." class="testimonial-avatar">
-                            <div>
-                                <p class="testimonial-name">Emily R.</p>
-                                <p class="testimonial-role">Graduate Student</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Version History Section -->
         <section id="version-changelog" class="section">
@@ -334,7 +292,7 @@ function initializeExtensionContent() {
                         <span class="material-icons legal-card-icon">privacy_tip</span>
                         <h3 class="legal-card-title">Privacy Policy</h3>
                         <p class="legal-card-description">Learn how we protect your data and privacy.</p>
-                        <a href="privacy-policy/index.html" class="btn btn-primary">View Privacy Policy</a>
+                        <a href="privacy-policy" class="btn btn-primary">View Privacy Policy</a>
                     </div>
                 </div>
             </div>
