@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200px" height="630px" viewBox="0 0 1200 630" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Latest Online Tools - Open Graph Image</title>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F5F7FF" offset="0%"></stop>
+            <stop stop-color="#E8ECFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#4A6CF7" stop-opacity="0.1" offset="0%"></stop>
+            <stop stop-color="#4A6CF7" stop-opacity="0.2" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="url(#linearGradient-1)" x="0" y="0" width="1200" height="630"></rect>
+        
+        <!-- Background Elements -->
+        <circle fill="url(#linearGradient-2)" cx="900" cy="200" r="100"></circle>
+        <circle fill="url(#linearGradient-2)" cx="1000" cy="400" r="70"></circle>
+        <circle fill="url(#linearGradient-2)" cx="800" cy="300" r="50"></circle>
+        <circle fill="url(#linearGradient-2)" cx="1100" cy="250" r="40"></circle>
+        <circle fill="url(#linearGradient-2)" cx="700" cy="400" r="60"></circle>
+        <path d="M900,500 C1000,450 1100,500 1200,450 L1200,630 L700,630 L700,550 C750,520 800,550 900,500 Z" fill="url(#linearGradient-2)"></path>
+        
+        <!-- Logo -->
+        <g transform="translate(100, 215)">
+            <rect fill="#4A6CF7" x="0" y="0" width="80" height="80" rx="16"></rect>
+            <path d="M40,16 C27.85,16 18,25.85 18,38 C18,50.15 27.85,60 40,60 C52.15,60 62,50.15 62,38 C62,25.85 52.15,16 40,16 Z M40,52 C32.27,52 26,45.73 26,38 C26,30.27 32.27,24 40,24 C47.73,24 54,30.27 54,38 C54,45.73 47.73,52 40,52 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <path d="M40,28 C34.48,28 30,32.48 30,38 C30,43.52 34.48,48 40,48 C45.52,48 50,43.52 50,38 C50,32.48 45.52,28 40,28 Z M40,40 C38.9,40 38,39.1 38,38 C38,36.9 38.9,36 40,36 C41.1,36 42,36.9 42,38 C42,39.1 41.1,40 40,40 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+        
+        <!-- Text -->
+        <text font-family="Arial-BoldMT, Arial" font-size="72" font-weight="bold" fill="#212529">
+            <tspan x="200" y="260">Latest</tspan>
+            <tspan x="420" y="260" fill="#4A6CF7">Online</tspan>
+            <tspan x="680" y="260">Tools</tspan>
+        </text>
+        
+        <text font-family="ArialMT, Arial" font-size="36" font-weight="normal" fill="#6C757D">
+            <tspan x="200" y="330">Your Hub for Free Web Utilities</tspan>
+        </text>
+        
+        <text font-family="ArialMT, Arial" font-size="24" font-weight="normal" fill="#6C757D">
+            <tspan x="200" y="380">Free · No Signup · Always Up-to-Date</tspan>
+        </text>
+        
+        <!-- URL -->
+        <text font-family="Arial-BoldMT, Arial" font-size="28" font-weight="bold" fill="#4A6CF7">
+            <tspan x="200" y="450">latestonlinetools.com</tspan>
+        </text>
+    </g>
+</svg>

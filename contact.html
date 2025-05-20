@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Latest Online Tools for questions, feedback, or support. Get in touch with our team through email, phone, or social media.">
+    <title>Contact Us - Latest Online Tools</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/fixes.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="Contact Us - Latest Online Tools">
+    <meta property="og:description" content="Contact Latest Online Tools for questions, feedback, or support. Get in touch with our team through email, phone, or social media.">
+    <meta property="og:image" content="assets/images/og-image.svg">
+    <meta property="og:url" content="https://latestonlinetools.com/contact">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* Contact Page Specific Styles */
+        .about-hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 3rem;
+        }
+
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .contact-section {
+            padding: 3rem 0;
+        }
+
+        .contact-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .contact-content p {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item .material-icons {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-right: 1rem;
+        }
+
+        .contact-item-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .contact-item-content p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item-content a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .social-links .material-icons,
+        .social-links svg {
+            font-size: 1.5rem;
+        }
+
+        /* Animation */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+    <div class="container">
+        <div class="header-left">
+            <div class="logo">
+                <a href="./">
+                    <img src="assets/images/favicon.svg" alt="Latest Online Tools Logo" class="brand-logo">
+                    <span>LatestOnlineTools</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li>
+                        <a href="./popular-tools">Popular Tools <span class="dropdown-icon">▾</span></a>
+                        <div class="dropdown-menu dropdown-wide popular-tools-dropdown">
+                            <!-- Tool categories will be dynamically loaded from tools-data.js -->
+                            <div class="dropdown-loading">
+                                <div class="loading-spinner">Loading tools...</div>
+                            </div>
+                            <div class="view-all">
+                                <a href="./popular-tools">View All</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="all-tools">All Tools <span class="dropdown-icon">▾</span></a>
+                        <div class="dropdown-menu dropdown-wide all-tools-dropdown">
+                            <!-- Tool categories will be dynamically loaded from tools-data.js -->
+                            <div class="dropdown-loading">
+                                <div class="loading-spinner">Loading tools...</div>
+                            </div>
+                            <div class="view-all">
+                                <a href="all-tools">View All</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="nav-actions">
+            <div class="desktop-search">
+                <form action="#" method="get" class="search-form">
+                    <input type="search" class="search-box" id="desktop-search-input" placeholder="Search tools..." aria-label="Search tools">
+                </form>
+                <div class="search-dropdown search-dropdown-wide" id="desktop-search-dropdown">
+                    <!-- Search results will be dynamically loaded from tools-data.js -->
+                    <div class="search-loading">
+                        <div class="loading-spinner">Loading search results...</div>
+                    </div>
+                </div>
+            </div>
+            <div class="search-icon" id="search-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+            </div>
+            <button type="button" class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+    <div class="mobile-search">
+        <form action="#" method="get" class="search-form">
+            <input type="search" class="search-box" id="mobile-search-input" placeholder="Search tools..." aria-label="Search tools">
+        </form>
+        <div class="search-dropdown" id="mobile-search-dropdown">
+            <!-- Search results will be dynamically loaded from tools-data.js -->
+            <div class="search-loading">
+                <div class="loading-spinner">Loading search results...</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero about-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="animate-on-scroll">Contact Us</h1>
+                    <p class="hero-subtitle animate-on-scroll">Get in touch with our team for questions, feedback, or support</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-content animate-on-scroll">
+                    <h2>Get In Touch</h2>
+                    <p>We'd love to hear from you! Whether you have a question about our tools, need technical support, or want to provide feedback, our team is here to help. Feel free to reach out using any of the contact methods below.</p>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="material-icons">email</span>
+                            <div class="contact-item-content">
+                                <h3>Email</h3>
+                                <p>For general inquiries: <a href="mailto:contact@latestonlinetools.com">contact@latestonlinetools.com</a></p>
+                                <p>For technical support: <a href="mailto:support@latestonlinetools.com">support@latestonlinetools.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="material-icons">phone</span>
+                            <div class="contact-item-content">
+                                <h3>Phone</h3>
+                                <p>Customer Service: <a href="tel:+9779766451388">+977 9766451388</a></p>
+                                <p>Available Monday-Friday, 9am-5pm NPT (GMT + 5:45)</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="material-icons">location_on</span>
+                            <div class="contact-item-content">
+                                <h3>Address</h3>
+                                <p>Balaju </p>
+                                <p>Kathmandu</p>
+                                <p>Bagmati Province 44600</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Connect With Us</h2>
+                    <p>Follow us on social media to stay updated with our latest tools, features, and announcements.</p>
+
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61576127584309" aria-label="Facebook" target="_blank" rel="noopener">
+                            <span class="material-icons">facebook</span>
+                        </a>
+                        <a href="https://www.instagram.com/latestonlinetools/" aria-label="Instagram" target="_blank" rel="noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-row">
+                <div class="footer-brand">
+                    <a href="./">
+                        <img src="assets/images/favicon.svg" alt="Latest Online Tools Logo" class="footer-logo">
+                        <span>LatestOnlineTools</span>
+                    </a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; <span id="current-year">2023</span> Latest Online Tools. All rights reserved.</p>
+                </div>
+                <div class="contact">
+                    <a href="./contact">Connect Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* Custom footer styles for contact page */
+        .footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .footer-brand {
+            text-align: left;
+        }
+
+        .copyright {
+            text-align: center;
+        }
+
+        .contact {
+            text-align: right;
+        }
+
+        .footer-brand a {
+            display: flex;
+            align-items: center;
+            color: var(--gray-400);
+            transition: color 0.3s ease;
+        }
+
+        .footer-brand a:hover {
+            color: white;
+        }
+
+        .footer-brand a span {
+            margin-left: 8px;
+        }
+
+        .footer-logo {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 767px) {
+            .footer-row {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .footer-brand, .copyright, .contact {
+                text-align: center;
+            }
+
+            .footer-brand a {
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <!-- Notification System -->
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/tools-data.js"></script>
+    <script src="assets/js/header-tools.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/search.js"></script>
+    <script src="assets/js/disable-dropdowns.js"></script>
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+            // Function to check if an element is in viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8
+                );
+            }
+
+            // Function to handle scroll animation
+            function handleScrollAnimation() {
+                animatedElements.forEach(element => {
+                    if (isInViewport(element)) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+
+            // Initial check on load
+            handleScrollAnimation();
+
+            // Check on scroll
+            window.addEventListener('scroll', handleScrollAnimation);
+
+            // Update current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tool Name - Free online tool for [purpose]. No installation required.">
+    <title>Tool Name - Latest Online Tools</title>
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="assets/css/styles.css" as="style">
+    <link rel="preload" href="assets/css/tool-template.css" as="style">
+    <link rel="preload" href="assets/images/favicon.svg" as="image">
+
+    <!-- Critical CSS -->
+    <style>
+        /* Inline critical CSS for faster rendering */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            box-sizing: border-box;
+        }
+    </style>
+
+    <!-- Main stylesheets -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/tool-template.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="Tool Name - Latest Online Tools">
+    <meta property="og:description" content="Free online tool for [purpose]. No installation required.">
+    <meta property="og:image" content="assets/images/og-image.svg">
+    <meta property="og:url" content="https://latestonlinetools.com/tool-name">
+
+    <!-- Performance optimizations -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+</head>
+<body>
+    <header class="site-header">
+    <div class="container">
+        <div class="header-left">
+            <div class="logo">
+                <a href="./">
+                    <img src="assets/images/favicon.svg" alt="Latest Online Tools Logo" class="brand-logo" width="32" height="32">
+                    <span>LatestOnlineTools</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li>
+                        <a href="popular-tools">Popular Tools <span class="dropdown-icon">▾</span></a>
+                        <div class="dropdown-menu dropdown-wide popular-tools-dropdown">
+                            <!-- Tool categories will be dynamically loaded from tools-data.js -->
+                            <div class="dropdown-loading">
+                                <div class="loading-spinner">Loading tools...</div>
+                            </div>
+                            <div class="view-all">
+                                <a href="popular-tools">View All</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="all-tools">All Tools <span class="dropdown-icon">▾</span></a>
+                        <div class="dropdown-menu dropdown-wide all-tools-dropdown">
+                            <!-- Tool categories will be dynamically loaded from tools-data.js -->
+                            <div class="dropdown-loading">
+                                <div class="loading-spinner">Loading tools...</div>
+                            </div>
+                            <div class="view-all">
+                                <a href="all-tools">View All</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="nav-actions">
+            <div class="desktop-search">
+                <form action="#" method="get" class="search-form">
+                    <input type="search" class="search-box" id="desktop-search-input" placeholder="Search tools..." aria-label="Search tools">
+                </form>
+                <div class="search-dropdown search-dropdown-wide" id="desktop-search-dropdown">
+                    <!-- Search results will be dynamically loaded from tools-data.js -->
+                    <div class="search-loading">
+                        <div class="loading-spinner">Loading search results...</div>
+                    </div>
+                </div>
+            </div>
+            <div class="search-icon" id="search-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+            </div>
+            <button type="button" class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+    <div class="mobile-search">
+        <form action="#" method="get" class="search-form">
+            <input type="search" class="search-box" id="mobile-search-input" placeholder="Search tools..." aria-label="Search tools">
+        </form>
+        <div class="search-dropdown" id="mobile-search-dropdown">
+            <!-- Search results will be dynamically loaded from tools-data.js -->
+            <div class="search-loading">
+                <div class="loading-spinner">Loading search results...</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <!-- Tool Content Section -->
+    <main class="tool-content">
+        <div class="container">
+            <!-- Tool Header -->
+            <div class="tool-header">
+                <div class="tool-title">
+                    <img src="assets/images/tool-icons/tool-icon.svg" alt="Tool Name Icon" class="tool-icon" width="48" height="48" loading="eager">
+                    <div class="tool-title-content">
+                        <h1>Tool Name</h1>
+                        <p class="tool-long-description">This is where the tool's long description will appear, providing more details about what the tool does and how it can help users.</p>
+                    </div>
+                </div>
+                <div class="share-button">
+                    <button type="button" id="share-btn" aria-label="Share this tool">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="18" cy="5" r="3"></circle>
+                            <circle cx="6" cy="12" r="3"></circle>
+                            <circle cx="18" cy="19" r="3"></circle>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                        </svg>
+                    </button>
+                    <div class="share-dropdown" id="share-dropdown">
+                        <a href="#" class="share-option" id="share-facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1877F2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                            Facebook
+                        </a>
+                        <a href="#" class="share-option" id="share-twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1DA1F2">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
+                            Twitter
+                        </a>
+                        <a href="#" class="share-option" id="share-linkedin">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#0A66C2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                            LinkedIn
+                        </a>
+                        <a href="#" class="share-option" id="share-email">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#EA4335">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            Email
+                        </a>
+                        <a href="#" class="share-option" id="copy-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#6A3BE4">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                            </svg>
+                            Copy Link
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- How to Use Section (visible on large screens) -->
+            <section class="how-to-use desktop-how-to-use">
+                <h2>How to Use [Tool Name]</h2>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>First Step </h3>
+
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Second Step </h3>
+
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Third Step </h3>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool Main Content -->
+            <div class="tool-main">
+                <!-- This is where the specific tool content will go -->
+                <div class="tool-placeholder">
+                    <p>Tool specific content goes here</p>
+                </div>
+            </div>
+
+            <!-- How to Use Section (visible on small screens) -->
+            <section class="how-to-use mobile-how-to-use">
+                <h2>How to Use [Tool Name]</h2>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>First Step </h3>
+
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Second Step </h3>
+
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Third Step </h3>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Similar Tools Section -->
+            <section class="similar-tools">
+                <h2>Similar Tools</h2>
+                <div class="similar-tools-grid">
+                    <!-- Similar tool cards will be loaded dynamically -->
+                    <div class="similar-tool-card">
+                        <div class="similar-tool-icon">
+                            <img src="assets/images/tool-icons/similar-tool-1.svg" alt="Similar Tool 1" width="40" height="40" loading="lazy">
+                        </div>
+                        <h3>Similar Tool 1</h3>
+                        <p>Description of similar tool 1</p>
+                        <a href="#" class="tool-link">Try It</a>
+                    </div>
+                    <div class="similar-tool-card">
+                        <div class="similar-tool-icon">
+                            <img src="assets/images/tool-icons/similar-tool-2.svg" alt="Similar Tool 2" width="40" height="40" loading="lazy">
+                        </div>
+                        <h3>Similar Tool 2</h3>
+                        <p>Description of similar tool 2</p>
+                        <a href="#" class="tool-link">Try It</a>
+                    </div>
+                    <div class="similar-tool-card">
+                        <div class="similar-tool-icon">
+                            <img src="assets/images/tool-icons/similar-tool-3.svg" alt="Similar Tool 3" width="40" height="40" loading="lazy">
+                        </div>
+                        <h3>Similar Tool 3</h3>
+                        <p>Description of similar tool 3</p>
+                        <a href="#" class="tool-link">Try It</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Tool Section -->
+            <section class="about-tool">
+                <h2>What is [Tool Name]?</h2>
+                <div class="about-content">
+                    <p>This is a detailed description of what the tool is and what it does. It should explain the purpose of the tool and its benefits to the user.</p>
+                    <p>Additional paragraphs can provide more context, background information, or explain why someone might need this tool.</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-brand">
+                <a href="./">
+                    <img src="assets/images/favicon.svg" alt="Latest Online Tools Logo" class="footer-logo" width="32" height="32" loading="lazy">
+                    <span>LatestOnlineTools</span>
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="current-year">2023</span> Latest Online Tools. All rights reserved.</p>
+            </div>
+            <div class="contact">
+                <a href="mailto:contact@latestonlinetools.com">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification System -->
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/tools-data.js" defer></script>
+    <script src="assets/js/header-tools.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/search.js" defer></script>
+    <script src="assets/js/tool-template.js" defer></script>
+    <script src="assets/js/disable-dropdowns.js" defer></script>
+    <!-- Tool specific script will be added here -->
+
+    <!-- Performance monitoring -->
+    <script>
+        // Simple performance monitoring
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                if (window.performance) {
+                    const timing = window.performance.timing;
+                    const pageLoadTime = timing.loadEventEnd - timing.navigationStart;
+                    console.log('Page load time:', pageLoadTime + 'ms');
+                }
+            }, 0);
+        });
+    </script>
+</body>
+</html>

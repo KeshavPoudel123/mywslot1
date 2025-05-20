@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy policy for QuickSearchPro browser extension. Learn how we protect your data and privacy when using our extension.">
+    <title>Privacy Policy - QuickSearchPro | Latest Online Tools</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/tool-template.css">
+    <link rel="stylesheet" href="../../assets/css/fixes.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg">
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="Privacy Policy - QuickSearchPro | Latest Online Tools">
+    <meta property="og:description" content="Privacy policy for QuickSearchPro browser extension. Learn how we protect your data and privacy when using our extension.">
+    <meta property="og:image" content="../../assets/images/og-image.svg">
+    <meta property="og:url" content="https://latestonlinetools.com/quick-search-pro/privacy-policy">
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Privacy Policy specific styles -->
+    <style>
+        .privacy-hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .privacy-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .privacy-content {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .last-updated {
+            color: #777;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .back-to-extension {
+            display: inline-flex;
+            align-items: center;
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-extension:hover {
+            color: var(--primary-color);
+        }
+
+        .back-to-extension .material-icons {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .privacy-section {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+
+        .privacy-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .privacy-section h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .privacy-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .privacy-section ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .privacy-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .privacy-section a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .privacy-section a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+    <div class="container">
+        <div class="header-left">
+            <div class="logo">
+                <a href="../../index">
+                    <img src="../../assets/images/favicon.svg" alt="Latest Online Tools Logo" class="brand-logo">
+                    <span>LatestOnlineTools</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li>
+                        <a href="../../popular-tools">Popular Tools <span class="dropdown-icon">▾</span></a>
+                        <div class="dropdown-menu dropdown-wide popular-tools-dropdown">
+                            <!-- Tool categories will be dynamically loaded from tools-data.js -->
+                            <div class="dropdown-loading">
+                                <div class="loading-spinner">Loading tools...</div>
+                            </div>
+                            <div class="view-all">
+                                <a href="../../popular-tools">View All</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="../../all-tools">All Tools <span class="dropdown-icon">▾</span></a>
+                        <div class="dropdown-menu dropdown-wide all-tools-dropdown">
+                            <!-- Tool categories will be dynamically loaded from tools-data.js -->
+                            <div class="dropdown-loading">
+                                <div class="loading-spinner">Loading tools...</div>
+                            </div>
+                            <div class="view-all">
+                                <a href="../../all-tools">View All</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="nav-actions">
+            <div class="desktop-search">
+                <form action="#" method="get" class="search-form">
+                    <input type="search" class="search-box" id="desktop-search-input" placeholder="Search tools..." aria-label="Search tools">
+                </form>
+                <div class="search-dropdown search-dropdown-wide" id="desktop-search-dropdown">
+                    <!-- Search results will be dynamically loaded from tools-data.js -->
+                    <div class="search-loading">
+                        <div class="loading-spinner">Loading search results...</div>
+                    </div>
+                </div>
+            </div>
+            <div class="search-icon" id="search-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+            </div>
+            <button type="button" class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+    <div class="mobile-search">
+        <form action="#" method="get" class="search-form">
+            <input type="search" class="search-box" id="mobile-search-input" placeholder="Search tools..." aria-label="Search tools">
+        </form>
+        <div class="search-dropdown" id="mobile-search-dropdown">
+            <!-- Search results will be dynamically loaded from tools-data.js -->
+            <div class="search-loading">
+                <div class="loading-spinner">Loading search results...</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <main>
+        <!-- Privacy Policy Hero Section -->
+        <section class="privacy-hero">
+            <div class="container">
+                <h1>QuickSearchPro Privacy Policy</h1>
+                <p>We're committed to protecting your privacy and being transparent about our practices</p>
+            </div>
+        </section>
+
+        <!-- Privacy Policy Content -->
+        <section class="section">
+            <div class="container">
+                <div class="privacy-content">
+                    <p class="last-updated">Last Updated: May 20, 2025</p>
+                    <a href="../" class="back-to-extension"><span class="material-icons">arrow_back</span> Back to QuickSearchPro</a>
+
+                    <div class="privacy-section">
+                        <h2>Introduction</h2>
+                        <p>This document outlines our commitment to protecting your privacy and explains how we handle any information related to your use of the QuickSearchPro Chrome extension.</p>
+                        <p>At QuickSearchPro, we take your privacy seriously. We've designed our extension with privacy in mind, minimizing data collection and ensuring transparency in our practices.</p>
+                    </div>
+
+                    <div class="privacy-section">
+                        <h2>Data Collection</h2>
+                        <p>QuickSearchPro does not collect, store, or transmit any user data outside of your browser. This extension operates solely on your device. It sends only the text you select directly to your chosen search engine.
+No other data is collected, stored, or transmitted.</p>
+
+                    </div>
+
+                    <div class="privacy-section">
+                        <h2>Local Storage</h2>
+                        <p>The extension stores the following information locally in your browser:</p>
+                        <ul>
+                            <li>Your search provider preferences</li>
+                            <li>Category and provider order settings</li>
+                            <li>Visibility and favorite settings</li>
+                        </ul>
+                        <p>This data never leaves your browser and is only used to provide the functionality of the extension. It is stored using Chrome's built-in storage API and is only accessible by the QuickSearchPro extension.</p>
+                    </div>
+
+                    <div class="privacy-section">
+                        <h2>Third-Party Services</h2>
+                        <p>When you use QuickSearchPro to search with a particular provider, your search query will be sent to that provider's website (e.g., Google, Bing, etc.). This is necessary for the search functionality to work.</p>
+                        <p>Please note that:</p>
+                        <ul>
+                            <li>These third-party services have their own privacy policies and data collection practices</li>
+                            <li>We have no control over how these services handle your search data</li>
+                            <li>We recommend reviewing the privacy policies of the search providers you use</li>
+                        </ul>
+                        <p>For example, when you search using Google through QuickSearchPro, your search query is sent to Google's servers according to their privacy policy.</p>
+                    </div>
+
+                    <div class="privacy-section">
+                        <h2>Permissions</h2>
+                        <p>QuickSearchPro requires the following permissions to function:</p>
+                        <ul>
+                            <li><strong>Context Menus</strong>: To add search options to your right-click menu when you select text</li>
+                            <li><strong>Storage</strong>: To save your preferences locally in your browser</li>
+                            <li><strong>Tabs</strong>: To open search results in new tabs</li>
+                        </ul>
+                        <p>We request only the permissions necessary for the extension to work properly. These permissions do not grant us access to your personal data or browsing history.</p>
+                    </div>
+
+                    <div class="privacy-section">
+                        <h2>Children's Privacy</h2>
+                        <p>QuickSearchPro is not directed at individuals under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe that your child has provided us with personal information, please contact us so that we can take necessary actions.</p>
+                    </div>
+
+                    <div class="privacy-section">
+                        <h2>Changes to This Privacy Policy</h2>
+                        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date at the top.</p>
+                        <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+                    </div>
+
+                    <div class="privacy-section">
+                        <h2>Contact Us</h2>
+                        <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
+                        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:contact@latestonlinetools.com">contact@latestonlinetools.com</a></p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-brand">
+                <a href="../../index">
+                    <img src="../../assets/images/favicon.svg" alt="Latest Online Tools Logo" class="footer-logo">
+                    <span>LatestOnlineTools</span>
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="current-year">2023</span> Latest Online Tools. All rights reserved.</p>
+            </div>
+            <div class="contact">
+                <a href="../../contact">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification System -->
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/tools-data.js"></script>
+    <script src="../../assets/js/header-tools.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/search.js"></script>
+    <script src="../../assets/js/disable-dropdowns.js"></script>
+    <script>
+        // Update current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

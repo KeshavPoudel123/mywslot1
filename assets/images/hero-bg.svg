@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="600px" viewBox="0 0 1440 600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Hero Background</title>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F5F7FF" offset="0%"></stop>
+            <stop stop-color="#E8ECFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#4A6CF7" stop-opacity="0.05" offset="0%"></stop>
+            <stop stop-color="#4A6CF7" stop-opacity="0.1" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="url(#linearGradient-1)" x="0" y="0" width="1440" height="600"></rect>
+        <circle fill="url(#linearGradient-2)" cx="1100" cy="200" r="100"></circle>
+        <circle fill="url(#linearGradient-2)" cx="1200" cy="400" r="70"></circle>
+        <circle fill="url(#linearGradient-2)" cx="1000" cy="300" r="50"></circle>
+        <circle fill="url(#linearGradient-2)" cx="1300" cy="250" r="40"></circle>
+        <circle fill="url(#linearGradient-2)" cx="900" cy="400" r="60"></circle>
+        <path d="M1100,500 C1200,450 1300,500 1400,450 L1440,600 L900,600 L900,550 C950,520 1000,550 1100,500 Z" fill="url(#linearGradient-2)"></path>
+    </g>
+</svg>
