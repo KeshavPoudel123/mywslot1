@@ -112,7 +112,7 @@ function initializeExtensionContent() {
                             <p>Highlight any text you want to search for. It can be a word, phrase, or even a paragraph.</p>
                         </div>
                         <div class="step-image">
-                            <img src="images/step1.png" alt="Select text on webpage">
+                            <img src="assets/images/step1.png" alt="Select text on webpage">
                         </div>
                     </div>
 
@@ -123,7 +123,7 @@ function initializeExtensionContent() {
                             <p>After selecting text, right-click to open the context menu which now includes QuickSearchPro options.</p>
                         </div>
                         <div class="step-image">
-                            <img src="images/step2.png" alt="Right-click to open context menu">
+                            <img src="assets/images/step2.png" alt="Right-click to open context menu">
                         </div>
                     </div>
 
@@ -134,7 +134,7 @@ function initializeExtensionContent() {
                             <p>Navigate through the categories and select the search provider you want to use.</p>
                         </div>
                         <div class="step-image">
-                            <img src="images/step3.png" alt="Choose search provider">
+                            <img src="assets/images/step3.png" alt="Choose search provider">
                         </div>
                     </div>
 
@@ -145,7 +145,7 @@ function initializeExtensionContent() {
                             <p>The search results will open in a new tab, showing you the results for your selected text.</p>
                         </div>
                         <div class="step-image">
-                            <img src="images/step4.png" alt="View search results">
+                            <img src="assets/images/step4.png" alt="View search results">
                         </div>
                     </div>
                 </div>
