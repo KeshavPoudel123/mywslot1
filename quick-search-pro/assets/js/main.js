@@ -268,12 +268,17 @@ function initializeExtensionContent() {
 
                 <div class="faq-container">
                     <div class="version-item">
-                        <h3>Version 1.0 <span class="version-date">- May 2025</span></h3>
+                        <h3>Version 1.0.0 <span class="version-date">- May 2025</span></h3>
                         <ul>
                             <li>Initial release of QuickSearchPro</li>
                             <li>Support for major search engines (Google, Bing, DuckDuckGo, Yahoo)</li>
                             <li>Customization options</li>
                             <li>Context menu integration</li>
+                        </ul>
+                        <h3>Version 1.0.1 <span class="version-date">- May 2025</span></h3>
+                        <ul>
+                            <li>Removed tabs permission as it was not necessary</li>
+
                         </ul>
                     </div>
                 </div>
