@@ -277,8 +277,9 @@ function initializeExtensionContent() {
                         </ul>
                         <h3>Version 1.0.1 <span class="version-date">- May 2025</span></h3>
                         <ul>
-                            <li>Removed tabs permission as it was not necessary</li>
-
+                            <li>Removed unnecessary tabs permission to comply with Chrome Web Store policies</li>
+                            <li>No functional changes - all features work exactly the same</li>
+                
                         </ul>
                     </div>
                 </div>
