@@ -221,7 +221,6 @@ function initializeExtensionContent() {
                             <ul>
                                 <li><strong>Context Menus</strong>: To add search options to your right-click menu</li>
                                 <li><strong>Storage</strong>: To save your preferences locally in your browser</li>
-                                <li><strong>Tabs</strong>: To open search results in new tabs</li>
                             </ul>
                             <p>We request only the permissions necessary for the extension to work properly. Your data remains private and is never sent to external servers.</p>
                         </div>
